@@ -2,6 +2,8 @@ package les2lib
 
 import (
 	"errors"
+	"github.com/aidarkhanov/nanoid/v2"
+	"log"
 	"math"
 	"unicode"
 )
@@ -23,4 +25,12 @@ func FindRoots(a, b, c float64) (float64, float64, error) {
 	d = math.Sqrt(d)
 	r1, r2 := (-b+d)/(2*a), (-b-d)/(2*a)
 	return r1,r2,nil
+}
+
+func GetUUID() string {
+	id, err := nanoid.New() //> "i25_rX9zwDdDn7Sg-ZoaH"
+	if err != nil {
+		log.Fatalln(err)
+	}
+	return id
 }
